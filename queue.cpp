@@ -109,6 +109,30 @@ public:
 
 int main(){
 	Queue* queue = new Queue();
-    
+	char op;
+	int num;
+	while(true){
+		cout << "Enter operation: ";
+		cin >> op;
+		switch(op){
+			case 'e':
+				cin >> num;
+				queue->enqueue(num);
+				break;
+			case 'd':
+				cout << (queue->isEmpty()? "Queue is empty!\n" : "Removed " + to_string(queue->dequeue()) + "\n");
+				break;
+			case 'p':
+				cout << (queue->isEmpty()? "Queue is empty!\n" : "Front of the queue is " + to_string(queue->peek()) + "\n");
+				break;
+			case 's':
+				cout << "Size of queue is " << queue->size() << endl;
+				break;
+		}
+		if(op == 'x' || op == 'X'){
+			cout << "Exiting";
+			break;
+		}
+	}
     return 0;
 }
